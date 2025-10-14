@@ -9,5 +9,6 @@ docker {
   buildx(true)
   platform("linux/amd64", "linux/arm64")
   load(true)
+  push(true)
   copySpec.from("sync").into("sync")
 }
