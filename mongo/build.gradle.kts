@@ -8,7 +8,7 @@ tasks.create("publish") {
 
 docker {
     name = "sriramsundhar/${project.name}"
-    tag("latest", "sriramsundhar/${project.name}:latest")//, project.version, "sriramsundhar/${project.name}:${project.version}")
+    tag("${project.version}","latest", "sriramsundhar/${project.name}:latest")//, project.version, "sriramsundhar/${project.name}:${project.version}")
     buildx(true)
     platform("linux/amd64","linux/arm64")
     copySpec.from("sync").into("sync")
