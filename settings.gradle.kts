@@ -1,2 +1,3 @@
 rootProject.name = "agents"
-include("sbt-agent", "faker", "mongo")
+//include("sbt-agent", "faker", "mongo")
+include("mongo")

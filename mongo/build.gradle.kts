@@ -10,7 +10,6 @@ docker {
     name = "sriramsundhar/${project.name}"
     tag("dockerhub", "sriramsundhar/${project.name}:latest")
     tag("dockerhub2", "sriramsundhar/${project.name}:${project.version}")
-    ag("latest", "${project.version}")
     buildx(true)
     platform("linux/amd64","linux/arm64")
     copySpec.from("sync").into("sync")
