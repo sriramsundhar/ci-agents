@@ -1,16 +1,10 @@
-plugins {
-    id("com.palantir.docker") version "0.36.0"
-}
+plugins { id("com.palantir.docker") version "0.36.0" }
 
-tasks.create("publish") {
-    dependsOn(getTasksByName("dockerTagsPush", true))
-}
+tasks.create("publish") { dependsOn(getTasksByName("dockerTagsPush", true)) }
 
 docker {
-    name = "registry-1.docker.io/sriramsundhar/${project.name}"
-    tag("latest", "${project.version}")
-    buildx(true)
-    platform("linux/amd64","linux/arm64")
-    copySpec.from("sync").into("sync")
-
+  name = "sriramsundhar/${project.name}"
+  tag("latest", "sriramsundhar/${project.name}:latest")
+  tag("${project.name}${project.version}", "sriramsundhar/${project.name}:${project.version}")
+  copySpec.from("sync").into("sync")
 }
