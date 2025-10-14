@@ -7,7 +7,7 @@ tasks.create("publish") {
 }
 
 docker {
-    name = "sriramsundhar/${project.name}"
+    name = "docker.io/sriramsundhar/${project.name}"
     tag("latest", "${project.version}")
     //tag("${project.version}", "sriramsundhar/${project.name}:${project.version}")
     buildx(true)
