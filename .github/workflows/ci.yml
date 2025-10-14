@@ -31,8 +31,8 @@ jobs:
           arguments: docker
 
   release:
-    if: startsWith(github.event.head_commit.message, 'Gradle Release Plugin') != true && github.ref_name == 'main'
-    needs: build
+    #if: startsWith(github.event.head_commit.message, 'Gradle Release Plugin') != true && github.ref_name == 'main'
+    #needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: read
