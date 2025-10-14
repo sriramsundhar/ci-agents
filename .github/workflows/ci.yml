@@ -31,8 +31,8 @@ jobs:
           arguments: docker
 
   release:
-    #if: startsWith(github.event.head_commit.message, 'Gradle Release Plugin') != true && github.ref_name == 'main'
-    #needs: build
+    if: startsWith(github.event.head_commit.message, 'Gradle Release Plugin') != true && github.ref_name == 'main'
+    needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -81,6 +81,3 @@ jobs:
           ARTIFACTORY_USERNAME: ${{ github.actor }}
           ARTIFACTORY_PASSCODE: ${{ secrets.GITHUB_TOKEN }}
           DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
-      - name: Debug with tmate
-        uses: mxschmitt/action-tmate@v3
-        if: failure()

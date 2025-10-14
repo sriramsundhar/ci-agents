@@ -4,11 +4,7 @@ tasks.create("publish") { dependsOn(getTasksByName("dockerTagsPush", true)) }
 
 docker {
   name = "sriramsundhar/${project.name}"
-  tag("dockerhub", "sriramsundhar/${project.name}:latest")
-  tag("dockerhub2", "sriramsundhar/${project.name}:${project.version}")
-  buildx(true)
-  platform("linux/amd64", "linux/arm64")
-  // load(true)
-  push(true)
+  tag("latest", "sriramsundhar/${project.name}:latest")
+  tag("${project.version}", "sriramsundhar/${project.name}:${project.version}")
   copySpec.from("sync").into("sync")
 }
