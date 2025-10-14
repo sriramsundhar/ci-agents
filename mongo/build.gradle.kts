@@ -8,7 +8,7 @@ docker {
   tag("dockerhub2", "sriramsundhar/${project.name}:${project.version}")
   buildx(true)
   platform("linux/amd64", "linux/arm64")
-  load(true)
+  // load(true)
   push(true)
   copySpec.from("sync").into("sync")
 }
