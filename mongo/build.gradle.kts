@@ -10,7 +10,7 @@ docker {
     name = "sriramsundhar/${project.name}"
     tag("latest", "sriramsundhar/${project.name}:latest")
     tag("${project.version}", "sriramsundhar/${project.name}:${project.version}")
-    buildx(true)
+    buildx = true
     platform("linux/amd64","linux/arm64")
     copySpec.from("sync").into("sync")
 
