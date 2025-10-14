@@ -1,4 +1,4 @@
-plugins { id("com.palantir.docker") version "0.36.0" }
+plugins { id("com.palantir.docker") version "0.30.0" }
 
 tasks.create("publish") { dependsOn(getTasksByName("dockerTagsPush", true)) }
 
