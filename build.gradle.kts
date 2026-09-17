@@ -16,6 +16,9 @@ tasks {
     }
 }
 tasks.create("build") {}
+tasks.register("docker") {
+    dependsOn(subprojects.map { "${it.path}:docker" })
+}
 
 
 allprojects {
