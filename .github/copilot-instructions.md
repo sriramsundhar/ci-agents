@@ -29,7 +29,7 @@ There is no configured lint task or test suite in the repository. If tests are a
 ./gradlew :faker:test --tests 'com.example.SomeTest.someCase'
 ```
 
-The CI build uses JDK 11, Docker Buildx, and QEMU before invoking `docker`; Gradle 9.1.0 supports the Java 25 runtime used locally while remaining compatible with the CI JDK.
+The CI build uses JDK 25, Docker Buildx, and QEMU before invoking `docker`; Gradle 9.1.0 supports the Java 25 runtime used locally while remaining compatible with the CI JDK.
 
 ## Local service workflows
 
