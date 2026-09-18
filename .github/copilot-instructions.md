@@ -2,14 +2,14 @@
 
 ## Project overview
 
-This repository builds Docker images used as auxiliary CI/test services. It is a Gradle 7.4.2 multi-project build with the modules listed in `settings.gradle.kts`:
+This repository builds Docker images used as auxiliary CI/test services. It is a Gradle 9.1.0 multi-project build with the modules listed in `settings.gradle.kts`:
 
 - `sbt-agent`: a Google Cloud SDK Alpine image with Java 11, jq, Docker/Compose, and SBT 1.4.9.
 - `faker`: a Node 14 image running `node-mock-server`. The runtime reads fake API resources from `FAKER_PATH` (defaulting to its `rest` directory) and mounts them under `URL_PATH` (default `/rest/v1`).
 - `mongo`: a MongoDB 8 image. Its Docker build includes the sync scripts and initializes data through `sync/scripts/restore.sh`; `mongo/docker-compose.yml` runs it as a single-node replica set.
 - `ai-cli`: an Ubuntu 24.04 developer image with common shell tools and the Aider, Antigravity, Claude Code, Codex, Cody, Cursor, and Gemini CLIs. Authentication is supplied at runtime.
 
-The root build is orchestration only. Each module applies the Palantir Docker Gradle plugin, names images `sriramsundhar/<module>`, and defines `publish` in terms of Docker tag pushing. The root `afterReleaseBuild` hook runs publishing after a release.
+The root build is orchestration only. Each module defines native Gradle Docker tasks, names images `sriramsundhar/<module>`, and defines `publish` in terms of Docker tag pushing. The root `afterReleaseBuild` hook runs publishing after a release.
 
 ## Build, test, and lint commands
 
@@ -29,7 +29,7 @@ There is no configured lint task or test suite in the repository. If tests are a
 ./gradlew :faker:test --tests 'com.example.SomeTest.someCase'
 ```
 
-The CI build uses JDK 11, Docker Buildx, and QEMU before invoking `docker`; use JDK 11 locally for parity with `.github/workflows/ci.yml`.
+The CI build uses JDK 25, Docker Buildx, and QEMU before invoking `docker`; Gradle 9.1.0 supports the Java 25 runtime used locally while remaining compatible with the CI JDK.
 
 ## Local service workflows
 
