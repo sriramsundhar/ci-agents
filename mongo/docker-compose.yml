@@ -1,6 +1,6 @@
 services:
   mongo:
-    image: sriramsundhar/mongo:main
+    image: ghcr.io/sriramsundhar/mongo:main
     container_name: mongo-dev
     command:
       ["--replSet", "rs0", "--bind_ip_all", "--keyFile", "/data/replica.key"]
