@@ -9,6 +9,7 @@ This image is based on `ubuntu:24.04` and includes common shell tools plus:
 - Cody CLI (`cody`)
 - Cursor CLI (`agent`)
 - Gemini CLI (`gemini`)
+- Warp Agent CLI (`warp`)
 - OpenJDK 25 (Eclipse Temurin)
 - Apache Maven 3.9.16 (`mvn`)
 

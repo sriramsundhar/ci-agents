@@ -38,6 +38,7 @@ RUN apt-get update \
     && curl -fsSL https://antigravity.google/cli/install.sh | bash -s -- --dir /root/.local/bin \
     && curl -fsSL https://claude.ai/install.sh | bash \
     && curl -fsS https://cursor.com/install | bash \
+    && curl -fsSL https://app.warp.dev/download/agent-cli | bash \
     && ln -sf /root/.local/bin/agy /usr/local/bin/agy \
     && ln -sf /root/.local/bin/claude /usr/local/bin/claude \
     && ln -sf /root/.local/bin/agent /usr/local/bin/agent \
