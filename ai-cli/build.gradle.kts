@@ -10,8 +10,11 @@ tasks.register<Exec>("docker") {
 tasks.register<Exec>("publish") {
     dependsOn("docker")
     commandLine(
-        "sh", "-c",
-        "docker push ghcr.io/sriramsundhar/${project.name}:latest && " +
-            "docker push ghcr.io/sriramsundhar/${project.name}:${project.version}"
+        "docker", "buildx", "build",
+        "--platform", "linux/amd64,linux/arm64",
+        "-t", "ghcr.io/sriramsundhar/${project.name}:latest",
+        "-t", "ghcr.io/sriramsundhar/${project.name}:${project.version}",
+        "--push",
+        project.projectDir
     )
 }
