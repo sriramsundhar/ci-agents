@@ -34,7 +34,7 @@ RUN apt-get update \
     && python3 -m pip install --break-system-packages --no-cache-dir pipx \
     && pipx ensurepath \
     && pipx install aider-chat \
-    && npm install --global @openai/codex @google/gemini-cli @sourcegraph/cody-cli \
+    && npm install --global @openai/codex @google/gemini-cli @sourcegraph/cody-cli @github/copilot \
     && curl -fsSL https://antigravity.google/cli/install.sh | bash -s -- --dir /root/.local/bin \
     && curl -fsSL https://claude.ai/install.sh | bash \
     && curl -fsS https://cursor.com/install | bash \
