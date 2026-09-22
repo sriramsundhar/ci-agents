@@ -8,6 +8,7 @@ This image is based on `ubuntu:24.04` and includes common shell tools plus:
 - Codex CLI (`codex`)
 - Cody CLI (`cody`)
 - Cursor CLI (`agent`)
+- GitHub Copilot CLI (`copilot`)
 - Gemini CLI (`gemini`)
 - Warp Agent CLI (`warp`)
 - OpenJDK 25 (Eclipse Temurin)
